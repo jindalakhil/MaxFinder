@@ -34,7 +34,7 @@ public class MaxFinderTester {
 		Float a =15.23f;
 		assertEquals(a,maxfinder.findMax(15.23f,7.123f,15.15f));
 	}
-	
+
 	@Test
 	public void test_When_2_Float_Is_Mazimum() {
 		Float a =15.23f;
