@@ -1,21 +1,21 @@
 package com.capg;
 
-public class MaxFinder {
-	public static void main(String[] args) {
-		Integer a =1;
-		Integer b= 2;
-		Integer c =3;
-		System.out.println("Maximum Integer is "+ findMax(a, b, c));
-		Float x = 23.12f;
-		Float y = 1231.123123f;
-		Float z = 1312.1231f;
-		System.out.println("Maximum Float Number is "+ findMax(x, y, z));
-		String e = "akhil";
-		String f = "jindal";
-		String g = "name";
-		System.out.println("Maximum String is "+ findMax(e, f, g));
+public class MaxFinder <t extends Comparable> {
+	t var1;
+	t var2;
+	t var3;
+	
+	public MaxFinder(t var1, t var2, t var3) {
+		super();
+		this.var1 = var1;
+		this.var2 = var2;
+		this.var3 = var3;
 	}
-	public static <T extends Comparable> T findMax(T a, T b, T c) {
+	public static void main(String[] args) {
+		MaxFinder obj = new MaxFinder<Float>(2.0f, 1.0f, 2.12f);
+		System.out.println("Maximum Value is "+ obj.findMax());
+	}
+	private static <T extends Comparable> T findMax(T a, T b, T c) {
 		T max = a;
 		
 		if(b.compareTo(max)>0)
@@ -24,4 +24,9 @@ public class MaxFinder {
 			max = c;
 		return max;
 	}
+	
+	public <t extends Comparable> t findMax() {
+		return (t)findMax(var1,var2,var3);
+	}
+	
 }
